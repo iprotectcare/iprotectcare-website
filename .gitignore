@@ -1,6 +1,49 @@
-.idea/
+# dependencies
 node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# next.js
 .next/
+out/
+build/
+next-env.d.ts
+
+# production / deploy
 .vercel/
+
+# env — ignore everything, keep the checked-in template
 .env
-.env*.local
+.env*
+!.env.example
+
+# testing
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# typescript
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# os
+.DS_Store
+Thumbs.db
