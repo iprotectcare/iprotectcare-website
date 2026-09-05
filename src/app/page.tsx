@@ -1,3 +1,4 @@
+import { BrandBanner } from "@/components/sections/BrandBanner";
 import { Hero } from "@/components/sections/Hero";
 import { DeviceGrid } from "@/components/sections/DeviceGrid";
 import { RepairCarousel } from "@/components/sections/RepairCarousel";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <BrandBanner />
       <DeviceGrid />
       <RepairCarousel />
       <WhyUs />
