@@ -188,6 +188,35 @@ TOTAL_STAGES=6
 # All values for this site live in .env.local, not .env.
 ENV_FILE=".env.local"
 
+# This wizard is interactive: without a keyboard every prompt would
+# auto-skip with empty values (exactly what happens when it's run from a
+# non-interactive shell). Refuse to run headless.
+if [[ ! -t 0 ]]; then
+  printf 'This wizard needs an interactive terminal.\n'
+  printf 'Open your terminal app and run:  bash scripts/setup-google-reviews.sh\n'
+  exit 1
+fi
+
+# ask_required KEY "Prompt": like ask, but re-prompts until non-empty.
+ask_required() {
+  local key="$1" prompt="$2"
+  while :; do
+    ask "$key" "$prompt"
+    [[ -n "${!key}" ]] && break
+    warn "That was empty — paste the value (Ctrl-C to quit and re-run later)."
+  done
+}
+
+# ask_secret_required KEY "Prompt": hidden input, re-prompts until non-empty.
+ask_secret_required() {
+  local key="$1" prompt="$2"
+  while :; do
+    ask_secret "$key" "$prompt"
+    [[ -n "${!key}" ]] && break
+    warn "That was empty — paste the value (Ctrl-C to quit and re-run later)."
+  done
+}
+
 banner "Google reviews setup — iProtectCare"
 
 # ── Stage 1: Google Business Profile ──────────────────────────────────────
@@ -210,7 +239,8 @@ step "Scroll to the interactive 'Place ID Finder' map on that page."
 step "Search: iProtectCare Koramangala Bengaluru"
 step "Click the shop's pin — the Place ID appears (starts with 'ChIJ...')."
 note "Shop not on the map yet? Its profile isn't live — finish Stage 1 first."
-ask GOOGLE_PLACE_ID "Paste the Place ID:"
+ask_required GOOGLE_PLACE_ID "Paste the Place ID:"
+[[ "$GOOGLE_PLACE_ID" == ChIJ* ]] || warn "Place IDs usually start with 'ChIJ' — double-check you copied the right value."
 
 # ── Stage 3: Enable the Places API (New) ──────────────────────────────────
 stage "Enable Places API (New)"
@@ -229,7 +259,7 @@ open_url "https://console.cloud.google.com/apis/credentials"
 step "Click '+ Create credentials' → 'API key', then copy the key."
 step "Recommended: click the new key → under 'API restrictions' choose"
 step "'Restrict key' → tick only 'Places API (New)' → Save."
-ask_secret GOOGLE_PLACES_API_KEY "Paste the API key (input hidden):"
+ask_secret_required GOOGLE_PLACES_API_KEY "Paste the API key (input hidden):"
 
 # ── Stage 5: Save locally and verify live ─────────────────────────────────
 stage "Save and verify"
