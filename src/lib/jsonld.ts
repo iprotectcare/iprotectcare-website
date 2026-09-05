@@ -8,6 +8,8 @@ export function localBusinessJsonLd() {
     "@type": "LocalBusiness",
     name: business.name,
     url: business.domain,
+    logo: `${business.domain}/images/logo.png`,
+    image: `${business.domain}/images/banner.png`,
     telephone: business.phone,
     email: business.email,
     address: {

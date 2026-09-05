@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NavDesktop } from "./NavDesktop";
 import { NavMobile } from "./NavMobile";
@@ -9,9 +10,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-surface/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
-          {/* TODO: replace wordmark with the real logo asset when supplied */}
-          {business.name}
+        <Link href="/" aria-label={`${business.name} — home`} className="shrink-0">
+          <Image
+            src="/images/brand-name-logo.png"
+            alt={business.name}
+            width={412}
+            height={120}
+            priority
+            className="h-10 w-auto rounded-lg"
+          />
         </Link>
         <NavDesktop />
         <div className="flex items-center gap-2">
