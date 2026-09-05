@@ -47,3 +47,8 @@ yarn-error.log*
 # os
 .DS_Store
 Thumbs.db
+
+# downloaded third-party reference imagery — bulky + copyrighted; manifests stay tracked
+design-assets/reference/**
+!design-assets/reference/**/
+!design-assets/reference/**/manifest.json
