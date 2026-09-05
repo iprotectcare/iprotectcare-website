@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Carousel } from "@/components/ui/Carousel";
+import { Coverflow } from "@/components/ui/Coverflow";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { gallery } from "@/content/site";
@@ -16,23 +16,23 @@ export function Gallery() {
         />
       </Reveal>
       <Reveal>
-        <Carousel ariaLabel="Device gallery" autoplayDelay={3000}>
+        <Coverflow ariaLabel="Device gallery" autoplayDelay={3000}>
           {gallery.map((g) => (
             <div
               key={g.src}
-              className="overflow-hidden rounded-2xl border border-hairline bg-surface-raised"
+              className="overflow-hidden rounded-2xl border border-hairline bg-surface-raised shadow-xl shadow-black/10"
             >
               <Image
                 src={g.src}
                 alt={g.alt}
                 width={800}
                 height={600}
-                sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 85vw"
+                sizes="(min-width: 1024px) 44vw, (min-width: 640px) 55vw, 78vw"
                 className="aspect-[4/3] w-full object-cover object-bottom"
               />
             </div>
           ))}
-        </Carousel>
+        </Coverflow>
       </Reveal>
     </Section>
   );
