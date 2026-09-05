@@ -8,7 +8,7 @@ export const iphone: Device = {
   heroSub:
     "Cracked screens, worn batteries, charging faults and more — diagnosed free, quoted upfront, and often fixed the same day.",
   formDeviceType: "iPhone",
-  image: { src: "/images/devices/iphone.jpg", alt: "Three iPhones seen from the back and side" },
+  image: { src: "/images/devices/iphone-card.jpg", alt: "Three iPhones in blue, white and pink, seen from the back" },
   models: [
     "iPhone 8",
     "iPhone 8 Plus",
