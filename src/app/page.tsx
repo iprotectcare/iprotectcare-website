@@ -2,6 +2,7 @@ import { BrandBanner } from "@/components/sections/BrandBanner";
 import { Hero } from "@/components/sections/Hero";
 import { DeviceGrid } from "@/components/sections/DeviceGrid";
 import { RepairCarousel } from "@/components/sections/RepairCarousel";
+import { Gallery } from "@/components/sections/Gallery";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Process } from "@/components/sections/Process";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
@@ -19,6 +20,7 @@ export default function Home() {
       <BrandBanner />
       <DeviceGrid />
       <RepairCarousel />
+      <Gallery />
       <WhyUs />
       {/* Testimonials slot between WhyUs and Process (spec §4): live Google
           reviews once the Business Profile + env vars exist, and the manual

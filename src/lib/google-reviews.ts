@@ -33,7 +33,41 @@ type PlacesResponse = {
  * Cached for a day via ISR so the static page stays fast and API usage
  * stays inside the free tier.
  */
+/**
+ * Dev-only preview (REVIEWS_PREVIEW=1 with `npm run dev`): sample data so
+ * the section's design can be seen before the Business Profile exists.
+ * The NODE_ENV guard makes it unreachable in any production build.
+ */
+const previewData: GoogleReviewData = {
+  rating: 4.9,
+  count: 27,
+  mapsUri: "https://maps.google.com",
+  reviews: [
+    {
+      author: "Jane Doe",
+      rating: 5,
+      text: "Cracked my iPhone screen in the morning, had it back looking new by evening. Fixed price quoted before they started — exactly what I paid.",
+      when: "2 weeks ago",
+    },
+    {
+      author: "John Roe",
+      rating: 5,
+      text: "MacBook wouldn't turn on after a coffee spill. They cleaned the board and saved it — and all my files. Genuinely honest about what it needed.",
+      when: "a month ago",
+    },
+    {
+      author: "Sam Rao",
+      rating: 4,
+      text: "Battery swap on my Apple Watch, done same day. Walk-in, no appointment. Would recommend.",
+      when: "a month ago",
+    },
+  ],
+};
+
 export async function getGoogleReviews(): Promise<GoogleReviewData | null> {
+  if (process.env.REVIEWS_PREVIEW === "1" && process.env.NODE_ENV !== "production") {
+    return previewData;
+  }
   const key = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACE_ID;
   if (!key || !placeId) return null;
