@@ -87,6 +87,13 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M3 10h18M8 3v4M16 3v4" />
     </>
   ),
+  instagram: (
+    <>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none" />
+    </>
+  ),
 };
 
 /** Brand glyphs drawn as solid fills rather than strokes. */

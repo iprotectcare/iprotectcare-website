@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { business, disclaimer } from "@/content/business";
 import { devices } from "@/content/devices";
+import { Icon } from "@/components/ui/Icon";
 
 export function Footer() {
   return (
@@ -12,6 +13,15 @@ export function Footer() {
             <p className="mt-3 text-sm text-secondary">
               Independent Apple device repair in {business.locality}, {business.city}.
             </p>
+            <a
+              href={business.instagramUrl}
+              target="_blank"
+              rel="noopener"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-secondary transition-colors hover:text-primary"
+            >
+              <Icon name="instagram" className="size-5" />
+              {business.instagramHandle}
+            </a>
           </div>
           <div>
             <p className="text-sm font-semibold">Repairs</p>

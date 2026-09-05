@@ -37,6 +37,10 @@ export default function ContactPage() {
           <Button href={`mailto:${business.email}`} variant="ghost" size="lg">
             {business.email}
           </Button>
+          <Button href={business.instagramUrl} variant="ghost" size="lg" target="_blank" rel="noopener">
+            <Icon name="instagram" className="size-5" />
+            {business.instagramHandle}
+          </Button>
         </div>
       </Section>
       <FindUs />

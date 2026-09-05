@@ -23,6 +23,8 @@ export const business = {
   hoursClose: "21:30",
   established: 2026,
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=iProtectCare+Koramangala+Bengaluru",
+  instagramUrl: "https://www.instagram.com/iprotect_care",
+  instagramHandle: "@iprotect_care",
   domain: "https://www.iprotectcare.in",
 } as const;
 

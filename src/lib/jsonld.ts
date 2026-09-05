@@ -10,6 +10,7 @@ export function localBusinessJsonLd() {
     url: business.domain,
     logo: `${business.domain}/images/logo.png`,
     image: `${business.domain}/images/banner.png`,
+    sameAs: [business.instagramUrl],
     telephone: business.phone,
     email: business.email,
     address: {
