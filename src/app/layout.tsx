@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { business } from "@/content/business";
+import { localBusinessJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
 const themeInit = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t}catch(e){}`;
@@ -16,6 +17,12 @@ export const metadata: Metadata = {
   },
   description:
     "Independent iPhone, iPad, MacBook and Apple Watch repair in Koramangala, Bengaluru. Free diagnosis, transparent pricing, warranty on every repair.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    siteName: business.name,
+    type: "website",
+    locale: "en_IN",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +32,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={GeistSans.variable}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+        />
       </head>
       <body>
         <a
