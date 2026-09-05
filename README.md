@@ -92,5 +92,5 @@ It must pass before go-live. Full open-items list: design spec §14 in
 ## Legal note
 
 iProtectCare is an independent service provider and is not affiliated with,
-authorised by, or endorsed by Apple Inc. Apple, iPhone, iPad, MacBook, iMac
+authorised by, or endorsed by Apple Inc. Apple, iPhone, iPad, MacBook, iMac,
 and Apple Watch are trademarks of Apple Inc.
