@@ -7,12 +7,13 @@ import { steps } from "@/content/process";
 import { generalFaq } from "@/content/faq";
 
 describe("device content integrity", () => {
-  it("exposes exactly the five routed device slugs, in nav order", () => {
+  it("exposes exactly the four routed device slugs, in nav order", () => {
+    // Mac desktops (iMac/Mac mini/Mac Studio) are not serviced — owner
+    // decision 2026-09-05.
     expect(devices.map((d) => d.slug)).toEqual([
       "iphone-repair",
       "ipad-repair",
       "macbook-repair",
-      "mac-repair",
       "apple-watch-repair",
     ]);
   });
@@ -45,13 +46,12 @@ describe("device content integrity", () => {
     }
   });
 
-  it("mac-repair covers iMac, Mac mini and Mac Studio", () => {
-    const mac = getDevice("mac-repair");
-    expect(mac).toBeDefined();
-    const joined = mac!.models.join(" ");
-    expect(joined).toContain("iMac");
-    expect(joined).toContain("Mac mini");
-    expect(joined).toContain("Mac Studio");
+  it("no Mac-desktop service claims remain in device content", () => {
+    const blob = JSON.stringify(devices);
+    expect(blob).not.toContain("mac-repair");
+    expect(blob).not.toContain("Mac desktop");
+    expect(blob).not.toContain("Mac mini");
+    expect(blob).not.toContain("Mac Studio");
   });
 
   it("every device has hero copy, meta and FAQ", () => {

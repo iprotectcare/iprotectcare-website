@@ -26,7 +26,7 @@ export default function AboutPage() {
             fixed quote before any work begins, and a written warranty when you collect.
           </p>
           <p>
-            We repair iPhone, iPad, MacBook, Mac desktops and Apple Watch — screens,
+            We repair iPhone, iPad, MacBook and Apple Watch — screens,
             batteries, water damage, and the board-level faults other shops turn away.
             Most common repairs are done the same day.
           </p>

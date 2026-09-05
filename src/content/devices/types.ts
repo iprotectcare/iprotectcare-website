@@ -20,7 +20,7 @@ export type Device = {
   heroTitle: string;
   heroSub: string;
   /** Value used by the booking form's device-type select. */
-  formDeviceType: "iPhone" | "iPad" | "MacBook" | "Mac desktop" | "Apple Watch";
+  formDeviceType: "iPhone" | "iPad" | "MacBook" | "Apple Watch";
   models: string[];
   repairs: Repair[];
   faq: DeviceFaq[];

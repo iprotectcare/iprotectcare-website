@@ -23,7 +23,6 @@ export const gallery = [
   { src: "/images/gallery/watch-bands.jpg", alt: "Colourful Apple Watch bands in a row" },
   { src: "/images/devices/macbook.jpg", alt: "Two MacBook Air laptops, one open and one closed" },
   { src: "/images/gallery/airpods-max-orange.png", alt: "AirPods Max in orange" },
-  { src: "/images/devices/mac.jpg", alt: "A hand holding a Mac mini" },
 ] as const;
 
 /** Feature flags for content that ships built but hidden. */

@@ -15,7 +15,7 @@ export function DeviceGrid() {
           sub="Pick your device to see repairs, pricing and turnaround times."
         />
       </Reveal>
-      <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {devices.map((d) => (
           <Link key={d.slug} href={`/${d.slug}`} className="group/link block h-full">
             <Card className="h-full">

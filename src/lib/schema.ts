@@ -9,7 +9,6 @@ export const deviceTypes = [
   "iPhone",
   "iPad",
   "MacBook",
-  "Mac desktop",
   "Apple Watch",
   "Other",
 ] as const;
