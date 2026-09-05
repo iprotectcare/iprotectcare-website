@@ -4,6 +4,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealGroup } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { GoogleG } from "@/components/ui/BrandIcons";
 
 function Stars({ rating, className = "size-4" }: { rating: number; className?: string }) {
   return (
@@ -43,6 +44,7 @@ export async function GoogleReviews() {
           />
           <div className="mb-2 flex flex-col items-start gap-2">
             <div className="flex items-center gap-3">
+              <GoogleG className="size-8" />
               <span className="text-4xl font-semibold tracking-tight">
                 {data.rating.toFixed(1)}
               </span>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { business, disclaimer } from "@/content/business";
 import { devices } from "@/content/devices";
-import { Icon } from "@/components/ui/Icon";
+import { InstagramMark } from "@/components/ui/BrandIcons";
 
 export function Footer() {
   return (
@@ -19,7 +19,7 @@ export function Footer() {
               rel="noopener"
               className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-secondary transition-colors hover:text-primary"
             >
-              <Icon name="instagram" className="size-5" />
+              <InstagramMark variant="glyph" className="size-5" />
               {business.instagramHandle}
             </a>
           </div>

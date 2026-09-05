@@ -3,6 +3,7 @@ import { FindUs } from "@/components/sections/FindUs";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { InstagramMark } from "@/components/ui/BrandIcons";
 import { business } from "@/content/business";
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function ContactPage() {
             {business.email}
           </Button>
           <Button href={business.instagramUrl} variant="ghost" size="lg" target="_blank" rel="noopener">
-            <Icon name="instagram" className="size-5" />
+            <InstagramMark variant="glyph" className="size-5" />
             {business.instagramHandle}
           </Button>
         </div>
