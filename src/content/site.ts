@@ -3,7 +3,7 @@ export const trustStrip = [
   "Free diagnosis",
   "Warranty on repairs",
   "Same-day on common fixes",
-  "Quality parts",
+  "Genuine parts",
 ] as const;
 
 /** Homepage hero copy. */

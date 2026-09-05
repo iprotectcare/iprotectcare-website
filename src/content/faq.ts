@@ -10,7 +10,7 @@ export const generalFaq = [
   },
   {
     q: "Do you use original parts?",
-    a: "We fit quality-tested replacement parts and cover every repair with our warranty. We'll always tell you exactly what part is going into your device before you approve the quote.",
+    a: "We fit genuine replacement parts and cover every repair with our warranty. We'll always tell you exactly what part is going into your device before you approve the quote.",
   },
   {
     q: "Is my data safe during a repair?",

@@ -21,8 +21,8 @@ export const sixPromises = [
     icon: "clock",
   },
   {
-    title: "Quality replacement parts",
-    body: "We fit quality-tested parts and stand behind them with our warranty.",
+    title: "Genuine replacement parts",
+    body: "We fit genuine parts and stand behind them with our warranty.",
     icon: "component",
   },
   {

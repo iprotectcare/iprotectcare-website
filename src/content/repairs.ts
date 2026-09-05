@@ -2,7 +2,7 @@
 export const commonRepairs = [
   {
     name: "Screen replacement",
-    blurb: "Cracked or unresponsive display swapped with a quality-tested panel.",
+    blurb: "Cracked or unresponsive display swapped with a genuine panel.",
     icon: "screen",
   },
   {

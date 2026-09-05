@@ -36,7 +36,7 @@ export const ipad: Device = {
       slug: "screen",
       name: "Screen & digitizer replacement",
       priceBand: "Quoted at your free diagnosis",
-      blurb: "Cracked glass or unresponsive touch fixed with a quality-tested assembly.",
+      blurb: "Cracked glass or unresponsive touch fixed with a genuine assembly.",
     },
     {
       slug: "battery",

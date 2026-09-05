@@ -52,7 +52,7 @@ export const iphone: Device = {
       slug: "screen",
       name: "Screen replacement",
       priceBand: "Quoted at your free diagnosis",
-      blurb: "Cracked, flickering or unresponsive displays replaced with quality-tested panels.",
+      blurb: "Cracked, flickering or unresponsive displays replaced with genuine panels.",
     },
     {
       slug: "battery",
