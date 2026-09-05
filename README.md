@@ -33,6 +33,14 @@ npm run dev                  # http://localhost:3000
 | `GOOGLE_PLACES_API_KEY` | Optional — enables the live Google-reviews section (Places API (New) key) |
 | `GOOGLE_PLACE_ID` | Optional — the shop's Google Place ID for that section |
 
+To set up the Google-reviews section, run the interactive walkthrough — it
+opens each Google page, tells you what to click, saves the values to
+`.env.local`, and live-verifies the API before pointing you at Vercel:
+
+```bash
+bash scripts/setup-google-reviews.sh
+```
+
 ## Scripts
 
 ```bash
