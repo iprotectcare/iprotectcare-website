@@ -16,7 +16,7 @@ export function Gallery() {
         />
       </Reveal>
       <Reveal>
-        <Carousel ariaLabel="Device gallery">
+        <Carousel ariaLabel="Device gallery" autoplayDelay={3000}>
           {gallery.map((g) => (
             <div
               key={g.src}

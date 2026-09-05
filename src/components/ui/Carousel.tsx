@@ -1,25 +1,46 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 
 /**
  * Embla track (spec §6): real swipe physics, snap points, keyboard arrows.
  * Slides peek — a sliver of the next card shows so the track reads as
- * scrollable. Autoplay off.
+ * scrollable. Autoplay is opt-in per instance; when enabled it pauses on
+ * hover and focus and is disabled entirely under prefers-reduced-motion.
  */
 export function Carousel({
   children,
   ariaLabel,
+  autoplayDelay,
 }: {
   children: ReactNode[];
   ariaLabel: string;
+  /** ms between advances; omit for a manual-only track. */
+  autoplayDelay?: number;
 }) {
-  const [emblaRef, embla] = useEmblaCarousel({
-    align: "start",
-    skipSnaps: false,
-    containScroll: "trimSnaps",
-  });
+  const reduced = useReducedMotion();
+  const autoplay = Boolean(autoplayDelay) && !reduced;
+  const [emblaRef, embla] = useEmblaCarousel(
+    {
+      align: "start",
+      skipSnaps: false,
+      containScroll: "trimSnaps",
+      loop: autoplay,
+    },
+    autoplay
+      ? [
+          Autoplay({
+            delay: autoplayDelay,
+            stopOnInteraction: false,
+            stopOnMouseEnter: true,
+            stopOnFocusIn: true,
+          }),
+        ]
+      : [],
+  );
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
 
