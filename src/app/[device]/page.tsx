@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { devices, getDevice } from "@/content/devices";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -46,30 +47,43 @@ export default async function DevicePage({ params }: { params: Promise<Params> }
       />
       {/* Hero */}
       <Section>
-        <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-semibold tracking-wide text-accent uppercase">
-            {device.name} repair
-          </p>
-          <h1
-            className="font-semibold tracking-tight text-balance"
-            style={{ fontSize: "var(--text-display)", lineHeight: 1.05 }}
-          >
-            {device.heroTitle}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-secondary">{device.heroSub}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="#book" size="lg">
-              Book a Repair
-            </Button>
-            <Button href={business.phoneHref} variant="secondary" size="lg">
-              Call {business.phone}
-            </Button>
+        <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="mb-3 text-sm font-semibold tracking-wide text-accent uppercase">
+              {device.name} repair
+            </p>
+            <h1
+              className="font-semibold tracking-tight text-balance"
+              style={{ fontSize: "var(--text-display)", lineHeight: 1.05 }}
+            >
+              {device.heroTitle}
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg text-secondary">{device.heroSub}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="#book" size="lg">
+                Book a Repair
+              </Button>
+              <Button href={business.phoneHref} variant="secondary" size="lg">
+                Call {business.phone}
+              </Button>
+            </div>
           </div>
-          <p className="mt-8 text-sm text-secondary">
-            <span className="font-medium text-primary">Models we service:</span>{" "}
-            {device.models.filter((m) => !m.includes("TODO")).join(" · ")}
-          </p>
+          <div className="overflow-hidden rounded-3xl border border-hairline">
+            <Image
+              src={device.image.src}
+              alt={device.image.alt}
+              width={1262}
+              height={580}
+              priority
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="aspect-[4/3] w-full object-cover object-bottom"
+            />
+          </div>
         </div>
+        <p className="mt-10 text-sm text-secondary">
+          <span className="font-medium text-primary">Models we service:</span>{" "}
+          {device.models.join(" · ")}
+        </p>
       </Section>
 
       {/* Repairs + price bands */}
@@ -78,7 +92,7 @@ export default async function DevicePage({ params }: { params: Promise<Params> }
           <SectionHeading
             eyebrow="Repairs & pricing"
             title={`What we fix on your ${device.name}`}
-            sub="Starting prices — your fixed quote comes with the free diagnosis."
+            sub="Every repair is priced at your free diagnosis, based on your exact model — and our rates are typically better than most market prices."
           />
         </Reveal>
         <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -87,9 +101,7 @@ export default async function DevicePage({ params }: { params: Promise<Params> }
               <div className="flex h-full flex-col p-6">
                 <p className="font-semibold">{r.name}</p>
                 <p className="mt-1.5 text-sm text-secondary">{r.blurb}</p>
-                <p className="mt-auto pt-4 text-sm font-medium text-accent">
-                  {r.priceBand.includes("TODO") ? "Ask for today's price" : r.priceBand}
-                </p>
+                <p className="mt-auto pt-4 text-sm font-medium text-accent">{r.priceBand}</p>
               </div>
             </Card>
           ))}

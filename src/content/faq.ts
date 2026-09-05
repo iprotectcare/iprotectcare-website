@@ -2,7 +2,7 @@
 export const generalFaq = [
   {
     q: "How much will my repair cost?",
-    a: "Diagnosis is free, and we quote a fixed price before starting. Each device page lists indicative starting prices for common repairs — the exact quote depends on your model and the fault.",
+    a: "Diagnosis is free, and we quote a fixed price before starting. The exact price depends on your model and the fault, so we quote it at the diagnosis — and our rates are typically better than most market prices.",
   },
   {
     q: "How long does a repair take?",

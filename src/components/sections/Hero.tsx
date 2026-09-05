@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { Button } from "@/components/ui/Button";
@@ -79,54 +80,22 @@ export function Hero() {
           </motion.ul>
         </div>
 
-        {/* Device visual — image slot; swap for shop photography later */}
+        {/* Device visual — swap the file in public/images/devices/ to rebrand */}
         <motion.div
           style={reduced ? undefined : { y, opacity }}
-          className="relative mx-auto w-full max-w-sm"
-          aria-hidden
+          className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-hairline"
         >
-          <DeviceIllustration />
+          <Image
+            src="/images/devices/iphone.jpg"
+            alt="Three iPhones seen from the back and side"
+            width={744}
+            height={1488}
+            priority
+            sizes="(min-width: 768px) 24rem, 80vw"
+            className="aspect-[4/5] w-full object-cover object-bottom"
+          />
         </motion.div>
       </div>
     </div>
-  );
-}
-
-/** Neutral, theme-aware iPhone illustration — no third-party imagery. */
-function DeviceIllustration() {
-  return (
-    <svg viewBox="0 0 320 420" fill="none" className="w-full drop-shadow-2xl">
-      <defs>
-        <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
-          <stop offset="55%" stopColor="var(--accent)" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="var(--surface-contrast)" />
-        </linearGradient>
-      </defs>
-      <rect
-        x="60"
-        y="20"
-        width="200"
-        height="380"
-        rx="34"
-        fill="var(--surface-contrast)"
-        stroke="var(--hairline)"
-        strokeWidth="2"
-      />
-      <rect x="70" y="30" width="180" height="360" rx="26" fill="url(#screen)" />
-      {/* dynamic island */}
-      <rect x="130" y="42" width="60" height="14" rx="7" fill="var(--surface-contrast)" />
-      {/* glass reflection */}
-      <path d="M70 120 190 30h40L90 390h-20z" fill="white" opacity="0.08" />
-      {/* repaired check */}
-      <circle cx="160" cy="210" r="34" fill="var(--surface)" opacity="0.95" />
-      <path
-        d="m146 211 9 9 19-20"
-        stroke="var(--accent)"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

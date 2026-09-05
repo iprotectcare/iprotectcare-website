@@ -8,6 +8,7 @@ export const ipad: Device = {
   heroSub:
     "Screens, batteries and charging faults for every iPad — base, mini, Air and Pro — with free diagnosis and a fixed quote.",
   formDeviceType: "iPad",
+  image: { src: "/images/devices/ipad.jpg", alt: "A fanned stack of iPad Air tablets in five colours" },
   models: [
     "iPad (5th gen, 2017)",
     "iPad (6th gen, 2018)",
@@ -29,37 +30,36 @@ export const ipad: Device = {
     "iPad Pro 12.9″ (2nd–6th gen, 2017–2022)",
     "iPad Pro 11″ / 13″ (M4, 2024)",
     "iPad Pro 11″ / 13″ (M5, 2025)",
-    "Newer 2026 iPad (TODO: confirm 2026 models)",
   ],
   repairs: [
     {
       slug: "screen",
       name: "Screen & digitizer replacement",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Cracked glass or unresponsive touch fixed with a quality-tested assembly.",
     },
     {
       slug: "battery",
       name: "Battery replacement",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Swollen or fast-draining batteries replaced safely.",
     },
     {
       slug: "charging-port",
       name: "Charging port repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Charging only at an angle, or not at all — port replaced.",
     },
     {
       slug: "water-damage",
       name: "Water damage treatment",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Board-level cleaning and repair after liquid exposure.",
     },
     {
       slug: "buttons",
       name: "Button & speaker repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Stuck power or volume buttons and crackling speakers.",
     },
   ],

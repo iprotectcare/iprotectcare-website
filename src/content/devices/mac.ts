@@ -8,6 +8,7 @@ export const mac: Device = {
   heroSub:
     "Displays, storage, power and logic board faults on every Mac desktop, diagnosed free with a fixed quote before any work.",
   formDeviceType: "Mac desktop",
+  image: { src: "/images/devices/mac.jpg", alt: "A hand holding a Mac mini" },
   models: [
     "iMac 21.5″ (2017–2019, Intel)",
     "iMac 27″ (2017–2020, Intel)",
@@ -21,37 +22,36 @@ export const mac: Device = {
     "Mac Studio (M1 Max/Ultra, 2022)",
     "Mac Studio (M2 Max/Ultra, 2023)",
     "Mac Studio (M4 Max / M3 Ultra, 2025)",
-    "Newer 2026 Mac desktop (TODO: confirm 2026 models)",
   ],
   repairs: [
     {
       slug: "display",
       name: "iMac display replacement",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Cracked glass, dead pixels, backlight and image faults.",
     },
     {
       slug: "storage",
       name: "Storage upgrade & repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Failing drives replaced; SSD upgrades where the model supports it.",
     },
     {
       slug: "power",
       name: "Power & no-boot repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Dead power supplies and Macs that chime but never start.",
     },
     {
       slug: "logic-board",
       name: "Logic board repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Component-level diagnosis and microsoldering.",
     },
     {
       slug: "data-recovery",
       name: "Data recovery",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Files recovered from machines that no longer boot.",
     },
   ],

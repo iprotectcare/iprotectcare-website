@@ -8,9 +8,13 @@ export type Repair = {
 
 export type DeviceFaq = { q: string; a: string };
 
+export type DeviceImage = { src: string; alt: string };
+
 export type Device = {
   /** URL segment, e.g. "iphone-repair" */
   slug: string;
+  /** Hero/card visual. Swap files in public/images/devices/ to rebrand. */
+  image: DeviceImage;
   name: string;
   navLabel: string;
   heroTitle: string;

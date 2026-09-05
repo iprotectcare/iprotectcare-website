@@ -8,6 +8,7 @@ export const watch: Device = {
   heroSub:
     "Cracked screens, worn batteries and water damage on every Apple Watch from Series 3 to Ultra — free diagnosis first.",
   formDeviceType: "Apple Watch",
+  image: { src: "/images/devices/watch.jpg", alt: "Three Apple Watches side by side" },
   models: [
     "Apple Watch Series 3",
     "Apple Watch Series 4",
@@ -24,31 +25,30 @@ export const watch: Device = {
     "Apple Watch Series 11",
     "Apple Watch SE 3",
     "Apple Watch Ultra 3",
-    "Newer 2026 Apple Watch (TODO: confirm 2026 models)",
   ],
   repairs: [
     {
       slug: "screen",
       name: "Screen replacement",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Cracked or lifted displays replaced and resealed.",
     },
     {
       slug: "battery",
       name: "Battery replacement",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Not lasting the day, or a swollen battery pushing the screen up.",
     },
     {
       slug: "water-damage",
       name: "Water damage treatment",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Cleaning and repair after the seal has let water in.",
     },
     {
       slug: "buttons",
       name: "Crown & button repair",
-      priceBand: "TODO: price band",
+      priceBand: "Quoted at your free diagnosis",
       blurb: "Stuck digital crowns and unresponsive side buttons.",
     },
   ],

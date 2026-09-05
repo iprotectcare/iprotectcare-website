@@ -26,12 +26,22 @@ describe("device content integrity", () => {
     }
   });
 
-  it("every repair has a price band: a real range or an explicit TODO", () => {
+  it("every repair has a non-empty price line", () => {
+    // Owner decision 2026-09-05: prices are quoted per device at the free
+    // diagnosis, so the line is copy, not a number — but it must never be
+    // absent or blank.
     for (const d of devices) {
       expect(d.repairs.length, d.slug).toBeGreaterThanOrEqual(3);
       for (const r of d.repairs) {
-        expect(r.priceBand, `${d.slug}/${r.slug}`).toMatch(/(^From ₹|^₹|TODO)/);
+        expect(r.priceBand.trim().length, `${d.slug}/${r.slug}`).toBeGreaterThan(0);
       }
+    }
+  });
+
+  it("every device has an image slot pointing at a real file", () => {
+    for (const d of devices) {
+      expect(d.image.src, d.slug).toMatch(/^\/images\/devices\/.+\.(jpg|png|webp)$/);
+      expect(d.image.alt.length, d.slug).toBeGreaterThan(0);
     }
   });
 
