@@ -22,7 +22,9 @@ describe("bookingSchema", () => {
   });
 
   it("accepts a booking without the optional fields", () => {
-    const { notes: _n, address: _a, pin: _p, ...rest } = valid;
+    const rest = Object.fromEntries(
+      Object.entries(valid).filter(([k]) => !["notes", "address", "pin"].includes(k)),
+    );
     expect(bookingSchema.safeParse(rest).success).toBe(true);
   });
 

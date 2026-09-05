@@ -60,11 +60,11 @@ tests/
 
 **Files:** Create Next 15 app in-place (`src/` layout, `@/*` alias), add deps `motion embla-carousel-react react-hook-form @hookform/resolvers zod geist`, dev deps `vitest vite-tsconfig-paths @playwright/test`. Create `vitest.config.ts`, `playwright.config.ts`, `.env.example`, npm scripts `test`, `test:e2e`.
 
-- [ ] Step 1: `git switch -c feature/website-build`.
-- [ ] Step 2: Scaffold `create-next-app@15` into a temp dir (`--ts --app --src-dir --tailwind --eslint --import-alias "@/*" --use-npm`), copy into repo without clobbering README/LICENSE/.gitignore/docs/history/design-assets.
-- [ ] Step 3: Install deps above; `vitest.config.ts` with `vite-tsconfig-paths`, test include `tests/unit/**`; `playwright.config.ts` with `webServer: npm run build && npm start`, `baseURL http://localhost:3000`, chromium + mobile (Pixel 7) projects.
-- [ ] Step 4: `.env.example` with the three vars, empty values.
-- [ ] Step 5: Verify `npm run build` and `npx vitest run` (no tests → pass with `--passWithNoTests`). Commit.
+- [x] Step 1: `git switch -c feature/website-build`.
+- [x] Step 2: Scaffold `create-next-app@15` into a temp dir (`--ts --app --src-dir --tailwind --eslint --import-alias "@/*" --use-npm`), copy into repo without clobbering README/LICENSE/.gitignore/docs/history/design-assets.
+- [x] Step 3: Install deps above; `vitest.config.ts` with `vite-tsconfig-paths`, test include `tests/unit/**`; `playwright.config.ts` with `webServer: npm run build && npm start`, `baseURL http://localhost:3000`, chromium + mobile (Pixel 7) projects.
+- [x] Step 4: `.env.example` with the three vars, empty values.
+- [x] Step 5: Verify `npm run build` and `npx vitest run` (no tests → pass with `--passWithNoTests`). Commit.
 
 ### Task 2: Design tokens + theming
 
@@ -72,14 +72,14 @@ tests/
 
 **Interfaces — Produces:** Tailwind utilities `bg-surface`, `bg-surface-raised`, `bg-surface-contrast`, `text-primary`, `text-secondary`, `text-accent`, `bg-accent`, `border-hairline`; `data-theme` attribute contract; `<ThemeToggle />` client component.
 
-- [ ] Step 1: `globals.css` — `@import "tailwindcss"`; `:root` + `[data-theme="dark"]` var blocks per Global Constraints; `@theme inline` mapping `--color-surface: var(--surface)` etc.; fluid type scale via `clamp()` custom properties (`--text-display: clamp(2.5rem, 1.2rem + 5vw, 5rem)` and steps down); 4px spacing base; `@media (prefers-reduced-motion: reduce)` kill-switch.
-- [ ] Step 2: `layout.tsx` — Geist via `geist/font/sans` (+ `GeistMono` unused: skip), blocking inline theme script before hydration:
+- [x] Step 1: `globals.css` — `@import "tailwindcss"`; `:root` + `[data-theme="dark"]` var blocks per Global Constraints; `@theme inline` mapping `--color-surface: var(--surface)` etc.; fluid type scale via `clamp()` custom properties (`--text-display: clamp(2.5rem, 1.2rem + 5vw, 5rem)` and steps down); 4px spacing base; `@media (prefers-reduced-motion: reduce)` kill-switch.
+- [x] Step 2: `layout.tsx` — Geist via `geist/font/sans` (+ `GeistMono` unused: skip), blocking inline theme script before hydration:
   ```js
   try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t}catch(e){}
   ```
   `suppressHydrationWarning` on `<html>`.
-- [ ] Step 3: `ThemeToggle.tsx` — client; reads `documentElement.dataset.theme` on mount, toggles, persists to `localStorage.theme`; 44px hit area; `aria-label="Switch to dark theme"/"…light theme"`.
-- [ ] Step 4: Build passes; manual check both themes on a stub page. Commit.
+- [x] Step 3: `ThemeToggle.tsx` — client; reads `documentElement.dataset.theme` on mount, toggles, persists to `localStorage.theme`; 44px hit area; `aria-label="Switch to dark theme"/"…light theme"`.
+- [x] Step 4: Build passes; manual check both themes on a stub page. Commit.
 
 ### Task 3: Content layer + integrity tests (TDD)
 
@@ -108,11 +108,11 @@ export const flags = { showTestimonials: false }
 ```
 Model lists cover 2017→2026 per spec §8 counts; 2026-unverifiable entries carry `TODO: confirm`. Price bands: `"TODO: price band"` markers.
 
-- [ ] Step 1: Write failing `content.test.ts`: every device has ≥5 models, no duplicate model names within a device, every repair has non-empty `priceBand` (real range `/^From ₹|^₹/` or explicit `TODO`), all five slugs present, `getDevice("mac-repair")` mentions iMac/Mac mini/Mac Studio in models.
-- [ ] Step 2: Write failing `launch.test.ts`: `describe.skipIf(!process.env.LAUNCH_CHECK)` — asserts no `TODO` in any content export (deep-stringify scan) including `business`.
-- [ ] Step 3: Run — fail (files missing).
-- [ ] Step 4: Implement all content files. Copy tone: plain, concrete, no superlatives that imply authorization.
-- [ ] Step 5: `npx vitest run` — content tests pass, launch test skipped. Commit.
+- [x] Step 1: Write failing `content.test.ts`: every device has ≥5 models, no duplicate model names within a device, every repair has non-empty `priceBand` (real range `/^From ₹|^₹/` or explicit `TODO`), all five slugs present, `getDevice("mac-repair")` mentions iMac/Mac mini/Mac Studio in models.
+- [x] Step 2: Write failing `launch.test.ts`: `describe.skipIf(!process.env.LAUNCH_CHECK)` — asserts no `TODO` in any content export (deep-stringify scan) including `business`.
+- [x] Step 3: Run — fail (files missing).
+- [x] Step 4: Implement all content files. Copy tone: plain, concrete, no superlatives that imply authorization.
+- [x] Step 5: `npx vitest run` — content tests pass, launch test skipped. Commit.
 
 ### Task 4: Zod schema (TDD)
 
@@ -129,8 +129,8 @@ export type Booking = { deviceType: "iPhone"|"iPad"|"MacBook"|"Mac desktop"|"App
   startedAt: number }      // epoch ms when form rendered
 ```
 
-- [ ] Step 1: Failing tests: valid booking passes; phone `"9886844485"` ok, `"1234567890"`/9-digit fail; pin `"560034"` ok, `"56003"` fails, absent ok; `consent:false` fails; empty `model` fails; `notes`/`address` optional; trims name.
-- [ ] Step 2: Run — fail. Step 3: Implement with `z.literal(true)` consent, `/^[6-9]\d{9}$/` phone, `/^\d{6}$/` optional pin. Step 4: Pass. Step 5: Commit.
+- [x] Step 1: Failing tests: valid booking passes; phone `"9886844485"` ok, `"1234567890"`/9-digit fail; pin `"560034"` ok, `"56003"` fails, absent ok; `consent:false` fails; empty `model` fails; `notes`/`address` optional; trims name.
+- [x] Step 2: Run — fail. Step 3: Implement with `z.literal(true)` consent, `/^[6-9]\d{9}$/` phone, `/^\d{6}$/` optional pin. Step 4: Pass. Step 5: Commit.
 
 ### Task 5: WhatsApp message builder (TDD)
 
@@ -142,8 +142,8 @@ export function buildWhatsAppMessage(b: Booking): string   // spec §8 format, d
 export function buildWaUrl(number: string, message: string): string // https://wa.me/<digits>?text=<encoded>
 ```
 
-- [ ] Step 1: Failing tests: full booking renders exactly the spec §8 sample shape (`*Device:*` lines, blank-line groups, `_Sent from iprotectcare.in_`); empty notes/address lines omitted entirely; `buildWaUrl("+91 98868 44485", "a b")` → `https://wa.me/919886844485?text=a%20b`.
-- [ ] Step 2–5: red → implement → green → commit.
+- [x] Step 1: Failing tests: full booking renders exactly the spec §8 sample shape (`*Device:*` lines, blank-line groups, `_Sent from iprotectcare.in_`); empty notes/address lines omitted entirely; `buildWaUrl("+91 98868 44485", "a b")` → `https://wa.me/919886844485?text=a%20b`.
+- [x] Step 2–5: red → implement → green → commit.
 
 ### Task 6: Sheets client + notify seam + API route (TDD)
 
@@ -161,8 +161,8 @@ export async function notifyLead(b: Booking, sourcePage: string): Promise<{sheet
 ```
 Rules: honeypot non-empty OR fill-time < 3000ms → return 200 `{ok:true, whatsappUrl}` **without** writing the sheet (silent discard). Sheet failure → still 200 with `sheetOk:false` (lead not lost). Raw errors never in response body.
 
-- [ ] Step 1: Failing tests (call `POST(new Request(...))` directly, `vi.stubGlobal("fetch", ...)`, stub env): happy path writes sheet once + returns wa URL containing encoded name; invalid body → 422; honeypot filled → 200, fetch never called; sheet 500 → 200 `sheetOk:false`; sheet hang → aborts (vi.useFakeTimers) and still 200.
-- [ ] Step 2–5: red → implement → green → commit.
+- [x] Step 1: Failing tests (call `POST(new Request(...))` directly, `vi.stubGlobal("fetch", ...)`, stub env): happy path writes sheet once + returns wa URL containing encoded name; invalid body → 422; honeypot filled → 200, fetch never called; sheet 500 → 200 `sheetOk:false`; sheet hang → aborts (vi.useFakeTimers) and still 200.
+- [x] Step 2–5: red → implement → green → commit.
 
 ### Task 7: UI primitives
 
@@ -180,7 +180,7 @@ Rules: honeypot non-empty OR fill-time < 3000ms → return 200 `{ok:true, whatsa
 ```
 `Reveal` uses `useReducedMotion()` → renders static. All interactive elements ≥44px.
 
-- [ ] Step 1: Implement; sanity-render on a scratch route; `npm run build` green. Commit. (Visual components — covered by e2e later, no unit tests.)
+- [x] Step 1: Implement; sanity-render on a scratch route; `npm run build` green. Commit. (Visual components — covered by e2e later, no unit tests.)
 
 ### Task 8: Layout shell
 
@@ -188,7 +188,7 @@ Rules: honeypot non-empty OR fill-time < 3000ms → return 200 `{ok:true, whatsa
 
 Header: sticky, blur backdrop, wordmark ("iProtectCare" text placeholder), Devices dropdown (5), About, FAQ, Contact, ThemeToggle, Book Repair button. Mobile: hamburger → full-screen sheet; `MobileActionBar` fixed bottom `md:hidden` with Call (`tel:`), WhatsApp (`wa.me`), Book (`/book`) — all from `business`. Footer: contact block, device links, hours, disclaimer verbatim, privacy/terms links. Skip link first in body.
 
-- [ ] Step 1: Implement; wire into `layout.tsx` with `<main id="main">`; build green; both themes checked. Commit.
+- [x] Step 1: Implement; wire into `layout.tsx` with `<main id="main">`; build green; both themes checked. Commit.
 
 ### Task 9: Homepage sections + assembly
 
@@ -196,7 +196,7 @@ Header: sticky, blur backdrop, wordmark ("iProtectCare" text placeholder), Devic
 
 Order per spec §4: Hero (headline, promise, dual CTA Call+Book, device visual slot via `next/image` priority, trust strip) → DeviceGrid (5 cards) → RepairCarousel (Embla, peeking) → WhyUs (6 cards) → Process (4 steps on `contrast`, connecting line draws on scroll via Motion `useScroll` scoped to section) → `{flags.showTestimonials && <Testimonials/>}` → BookRepairForm inline (§10 component) → FindUs (address, hours, Google Maps embed/link) → FaqSection (Accordion, generalFaq) → Footer already in layout. Hero device image drifts slower than page (`useScroll` + `useTransform`, ±20px) and fades leaving.
 
-- [ ] Step 1: Implement sections reading only from `content/`; assemble page; build green. Commit.
+- [x] Step 1: Implement sections reading only from `content/`; assemble page; build green. Commit.
 
 ### Task 10: BookRepairForm + /book page
 
@@ -204,7 +204,7 @@ Order per spec §4: Hero (headline, promise, dual CTA Call+Book, device visual s
 
 Behaviour (spec §8): RHF + zodResolver, validate on blur; device select drives model select (disabled until device chosen; repopulates + clears stale value); device "Other" → model becomes free text, issue falls back to generic list; submit disabled until consent; hidden `company` input (`tabIndex={-1} autoComplete="off"` visually hidden); `startedAt` set on mount; POST `/api/book` with `sourcePage: usePathname()`; success state replaces form: check icon, "Request received", large **Send on WhatsApp** `<a>` with returned `whatsappUrl` (never auto-open); if `sheetOk:false` identical success UI; network/500 → error state with tap-to-call + direct WhatsApp links; `aria-live="polite"` status region.
 
-- [ ] Step 1: Implement; manual happy-path against a dev stub; build green. Commit. (Covered by e2e Task 13.)
+- [x] Step 1: Implement; manual happy-path against a dev stub; build green. Commit. (Covered by e2e Task 13.)
 
 ### Task 11: Device page template + static pages
 
@@ -212,7 +212,7 @@ Behaviour (spec §8): RHF + zodResolver, validate on blur; device select drives 
 
 `generateStaticParams` from `devices` slugs; unknown slug → `notFound()`. Template: hero (device name + supported-models line) → repairs with price bands (Card list) → Process → device FAQ (Accordion) → BookRepairForm with device preselected (prop `defaultDevice`). Static pages from content; privacy/terms: honest minimal copy (data used only to respond to repair requests; no analytics cookies yet).
 
-- [ ] Step 1: Implement; `npm run build` shows 5 static device pages. Commit.
+- [x] Step 1: Implement; `npm run build` shows 5 static device pages. Commit.
 
 ### Task 12: SEO + structured data
 
@@ -220,7 +220,7 @@ Behaviour (spec §8): RHF + zodResolver, validate on blur; device select drives 
 
 Per-page unique `title`/`description` via `seo.ts` helpers; canonical `https://www.iprotectcare.in`; `metadataBase`; OG defaults (site name, generated OG image can be static `public/og.png` placeholder). JSON-LD: `LocalBusiness` (address/hours/phone) in root layout, `Service` per device page, `FAQPage` on /faq. `sitemap.ts` lists all public routes; `robots.ts` allows all, points at sitemap.
 
-- [ ] Step 1: Implement; validate JSON-LD shape by parsing script tags in built HTML; build green. Commit.
+- [x] Step 1: Implement; validate JSON-LD shape by parsing script tags in built HTML; build green. Commit.
 
 ### Task 13: Playwright e2e
 
@@ -229,13 +229,13 @@ Per-page unique `title`/`description` via `seo.ts` helpers; canonical `https://w
 - `book.spec.ts`: route-mock `/api/book` → 200: fill form (Jane Doe data), submit, success state, assert decoded `wa.me` href contains `*Device:* iPhone` etc.; mock 500 → error state exposes `tel:` and WhatsApp links.
 - `theme.spec.ts`: toggle → reload → `data-theme` persists; no FOUC (documentElement attribute set before first paint via init script check).
 - `mobile.spec.ts` (Pixel 7 project): bottom bar visible with 3 links; hamburger opens sheet; nav to device page works.
-- [ ] Step 1: Write specs, run `npm run test:e2e` against production build until green. Commit.
+- [x] Step 1: Write specs, run `npm run test:e2e` against production build until green. Commit.
 
 ### Task 14: Polish + verification
 
-- [ ] Step 1: `npm run lint`, `npx vitest run`, `npm run test:e2e`, `npm run build` all green.
-- [ ] Step 2: Reduced-motion spot check (emulate via Playwright `reducedMotion: "reduce"` in theme spec).
-- [ ] Step 3: Update `history/2026-09-05.md`; final commit.
+- [x] Step 1: `npm run lint`, `npx vitest run`, `npm run test:e2e`, `npm run build` all green.
+- [x] Step 2: Reduced-motion spot check (emulate via Playwright `reducedMotion: "reduce"` in theme spec).
+- [x] Step 3: Update `history/2026-09-05.md`; final commit.
 
 ## Self-Review (done)
 
