@@ -291,7 +291,7 @@ export function BookRepairForm({ defaultDevice }: { defaultDevice?: DeviceType }
         </Field>
       </div>
 
-      <Field label="Email" required error={errors.email?.message}>
+      <Field label="Email" error={errors.email?.message}>
         {(a11y) => (
           <input
             {...a11y}

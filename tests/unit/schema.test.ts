@@ -62,8 +62,12 @@ describe("bookingSchema", () => {
     expect(bookingSchema.safeParse({ ...valid, name: "   " }).success).toBe(false);
   });
 
-  it("validates email", () => {
+  it("email is optional, but must be valid when given", () => {
     expect(bookingSchema.safeParse({ ...valid, email: "not-an-email" }).success).toBe(false);
+    expect(bookingSchema.safeParse({ ...valid, email: "" }).success).toBe(true);
+    const { email: _e, ...noEmail } = { ...valid };
+    void _e;
+    expect(bookingSchema.safeParse(noEmail).success).toBe(true);
   });
 
   it("passes the honeypot field through untouched when present", () => {

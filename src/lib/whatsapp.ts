@@ -18,7 +18,7 @@ export function buildWhatsAppMessage(b: Booking): string {
     "",
     `*Name:* ${b.name}`,
     `*Phone:* +91 ${b.phone}`,
-    `*Email:* ${b.email}`,
+    b.email ? `*Email:* ${b.email}` : undefined,
     addressLine,
     "",
     "_Sent from iprotectcare.in_",

@@ -37,11 +37,19 @@ describe("buildWhatsAppMessage", () => {
   });
 
   it("drops empty optional lines instead of sending them blank", () => {
-    const minimal: Booking = { ...booking, notes: undefined, address: undefined, pin: undefined };
+    const minimal: Booking = {
+      ...booking,
+      notes: undefined,
+      address: undefined,
+      pin: undefined,
+      email: undefined,
+    };
     const msg = buildWhatsAppMessage(minimal);
     expect(msg).not.toContain("*Notes:*");
     expect(msg).not.toContain("*Address:*");
+    expect(msg).not.toContain("*Email:*");
     expect(msg).toContain("*Device:* iPhone 14 Pro");
+    expect(msg).toContain("*Phone:* +91 9000000000");
   });
 
   it("labels an 'Other' device with its typed model only", () => {

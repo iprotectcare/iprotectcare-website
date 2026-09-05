@@ -26,7 +26,7 @@ export async function postToSheet(b: Booking, sourcePage: string): Promise<void>
         notes: b.notes ?? "",
         name: b.name,
         phone: `+91 ${b.phone}`,
-        email: b.email,
+        email: b.email ?? "",
         address: b.address ?? "",
         pin: b.pin ?? "",
         consent: b.consent ? "yes" : "no",

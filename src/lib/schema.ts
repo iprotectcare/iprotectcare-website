@@ -46,7 +46,14 @@ export const bookingSchema = z.object({
   notes: optionalTrimmed,
   name: z.string().trim().min(1, "Enter your name").max(100),
   phone,
-  email: z.string().trim().email("Enter a valid email").max(200),
+  // Optional (owner decision 2026-09-05) — validated only when given.
+  email: z
+    .string()
+    .trim()
+    .max(200)
+    .optional()
+    .transform((v) => (v === "" ? undefined : v))
+    .pipe(z.string().email("Enter a valid email").optional()),
   address: optionalTrimmed,
   pin: z
     .string()
