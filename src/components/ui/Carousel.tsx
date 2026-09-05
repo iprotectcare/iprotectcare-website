@@ -15,11 +15,14 @@ export function Carousel({
   children,
   ariaLabel,
   autoplayDelay,
+  slideClassName = "flex-[0_0_85%] sm:flex-[0_0_46%] lg:flex-[0_0_31%]",
 }: {
   children: ReactNode[];
   ariaLabel: string;
   /** ms between advances; omit for a manual-only track. */
   autoplayDelay?: number;
+  /** Per-slide width classes; must overflow the container for looping. */
+  slideClassName?: string;
 }) {
   const reduced = useReducedMotion();
   const autoplay = Boolean(autoplayDelay) && !reduced;
@@ -69,10 +72,7 @@ export function Carousel({
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y gap-4">
           {children.map((slide, i) => (
-            <div
-              key={i}
-              className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_46%] lg:flex-[0_0_31%]"
-            >
+            <div key={i} className={`min-w-0 ${slideClassName}`}>
               {slide}
             </div>
           ))}

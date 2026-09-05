@@ -2,7 +2,8 @@ import { getGoogleReviews } from "@/lib/google-reviews";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Reveal, RevealGroup } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
+import { Carousel } from "@/components/ui/Carousel";
 import { Button } from "@/components/ui/Button";
 import { GoogleG } from "@/components/ui/BrandIcons";
 
@@ -63,22 +64,28 @@ export async function GoogleReviews() {
           </div>
         </div>
       </Reveal>
-      <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {data.reviews.map((r) => (
-          <Card key={`${r.author}-${r.when}`} interactive={false} className="h-full bg-surface">
-            <figure className="flex h-full flex-col gap-3 p-6">
-              <Stars rating={r.rating} />
-              <blockquote className="text-sm leading-relaxed">
-                “{r.text.length > 320 ? `${r.text.slice(0, 320).trimEnd()}…` : r.text}”
-              </blockquote>
-              <figcaption className="mt-auto pt-2 text-sm text-secondary">
-                {r.author}
-                {r.when && <span> · {r.when}</span>}
-              </figcaption>
-            </figure>
-          </Card>
-        ))}
-      </RevealGroup>
+      <Reveal>
+        <Carousel
+          ariaLabel="Google reviews"
+          autoplayDelay={3000}
+          slideClassName="flex-[0_0_85%] sm:flex-[0_0_55%] lg:flex-[0_0_40%]"
+        >
+          {data.reviews.map((r) => (
+            <Card key={`${r.author}-${r.when}`} interactive={false} className="h-full bg-surface">
+              <figure className="flex h-full min-h-52 flex-col gap-3 p-6">
+                <Stars rating={r.rating} />
+                <blockquote className="text-sm leading-relaxed">
+                  “{r.text.length > 320 ? `${r.text.slice(0, 320).trimEnd()}…` : r.text}”
+                </blockquote>
+                <figcaption className="mt-auto pt-2 text-sm text-secondary">
+                  {r.author}
+                  {r.when && <span> · {r.when}</span>}
+                </figcaption>
+              </figure>
+            </Card>
+          ))}
+        </Carousel>
+      </Reveal>
     </Section>
   );
 }

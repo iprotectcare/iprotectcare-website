@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/Card";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Reveal, RevealGroup } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
+import { Carousel } from "@/components/ui/Carousel";
 import { flags } from "@/content/site";
 import { testimonials } from "@/content/testimonials";
 
@@ -16,18 +17,24 @@ export function Testimonials() {
       <Reveal>
         <SectionHeading eyebrow="What customers say" title="Repairs people came back to review" />
       </Reveal>
-      <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((t) => (
-          <Card key={t.quote} interactive={false} className="h-full bg-surface">
-            <figure className="flex h-full flex-col p-6">
-              <blockquote className="text-sm leading-relaxed">“{t.quote}”</blockquote>
-              <figcaption className="mt-auto pt-4 text-sm text-secondary">
-                {t.author} · {t.device}
-              </figcaption>
-            </figure>
-          </Card>
-        ))}
-      </RevealGroup>
+      <Reveal>
+        <Carousel
+          ariaLabel="Customer testimonials"
+          autoplayDelay={3000}
+          slideClassName="flex-[0_0_85%] sm:flex-[0_0_55%] lg:flex-[0_0_40%]"
+        >
+          {testimonials.map((t) => (
+            <Card key={t.quote} interactive={false} className="h-full bg-surface">
+              <figure className="flex h-full min-h-52 flex-col p-6">
+                <blockquote className="text-sm leading-relaxed">“{t.quote}”</blockquote>
+                <figcaption className="mt-auto pt-4 text-sm text-secondary">
+                  {t.author} · {t.device}
+                </figcaption>
+              </figure>
+            </Card>
+          ))}
+        </Carousel>
+      </Reveal>
     </Section>
   );
 }
