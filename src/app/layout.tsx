@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import { business } from "@/content/business";
 import { localBusinessJsonLd } from "@/lib/jsonld";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <MobileActionBar />
+        <WhatsAppFab />
       </body>
     </html>
   );

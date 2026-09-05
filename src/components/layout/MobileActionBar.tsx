@@ -1,41 +1,38 @@
 import Link from "next/link";
 import { business } from "@/content/business";
+import { Icon } from "@/components/ui/Icon";
 
 /**
  * Persistent bottom bar on mobile pinning Call · WhatsApp · Book within
  * thumb reach — the highest-value mobile decision on the site (spec §4).
  */
 export function MobileActionBar() {
-  const items = [
-    { href: business.phoneHref, label: "Call", external: true },
-    { href: `https://wa.me/${business.whatsappNumber}`, label: "WhatsApp", external: true },
-    { href: "/book", label: "Book", external: false },
-  ];
-
   return (
     <nav
       aria-label="Quick actions"
       className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 border-t border-hairline bg-surface/90 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] md:hidden"
     >
-      {items.map((item) =>
-        item.external ? (
-          <a
-            key={item.label}
-            href={item.href}
-            className="flex min-h-14 items-center justify-center text-sm font-medium"
-          >
-            {item.label}
-          </a>
-        ) : (
-          <Link
-            key={item.label}
-            href={item.href}
-            className="flex min-h-14 items-center justify-center text-sm font-semibold text-accent"
-          >
-            {item.label}
-          </Link>
-        ),
-      )}
+      <a
+        href={business.phoneHref}
+        className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-medium"
+      >
+        <Icon name="phone" className="size-5" />
+        Call
+      </a>
+      <a
+        href={`https://wa.me/${business.whatsappNumber}`}
+        className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-medium text-[#25D366]"
+      >
+        <Icon name="whatsapp" className="size-5" />
+        WhatsApp
+      </a>
+      <Link
+        href="/book"
+        className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-semibold text-accent"
+      >
+        <Icon name="calendar" className="size-5" />
+        Book
+      </Link>
     </nav>
   );
 }

@@ -94,7 +94,14 @@ export function BookRepairForm({ defaultDevice }: { defaultDevice?: DeviceType }
           free diagnosis slot.
         </p>
         <div className="mt-6">
-          <Button href={phase.whatsappUrl} size="lg" target="_blank" rel="noopener">
+          <Button
+            href={phase.whatsappUrl}
+            size="lg"
+            target="_blank"
+            rel="noopener"
+            className="bg-[#25D366] text-white hover:bg-[#2BE070]"
+          >
+            <Icon name="whatsapp" className="size-5" />
             Send on WhatsApp
           </Button>
         </div>
@@ -129,6 +136,7 @@ export function BookRepairForm({ defaultDevice }: { defaultDevice?: DeviceType }
             target="_blank"
             rel="noopener"
           >
+            <Icon name="whatsapp" className="size-5 text-[#25D366]" />
             WhatsApp us
           </Button>
         </div>

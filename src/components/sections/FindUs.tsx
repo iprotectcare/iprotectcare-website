@@ -39,6 +39,7 @@ export function FindUs() {
                 Get directions
               </Button>
               <Button href={`https://wa.me/${business.whatsappNumber}`} variant="secondary" target="_blank" rel="noopener">
+                <Icon name="whatsapp" className="size-5 text-[#25D366]" />
                 WhatsApp us
               </Button>
             </div>

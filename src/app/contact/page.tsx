@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FindUs } from "@/components/sections/FindUs";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { business } from "@/content/business";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener"
           >
+            <Icon name="whatsapp" className="size-5 text-[#25D366]" />
             WhatsApp us
           </Button>
           <Button href={`mailto:${business.email}`} variant="ghost" size="lg">
