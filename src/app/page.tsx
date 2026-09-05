@@ -4,6 +4,7 @@ import { DeviceGrid } from "@/components/sections/DeviceGrid";
 import { RepairCarousel } from "@/components/sections/RepairCarousel";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Process } from "@/components/sections/Process";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FindUs } from "@/components/sections/FindUs";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -19,7 +20,11 @@ export default function Home() {
       <DeviceGrid />
       <RepairCarousel />
       <WhyUs />
-      {/* Testimonials slot between WhyUs and Process once real reviews exist (spec §4) */}
+      {/* Testimonials slot between WhyUs and Process (spec §4): live Google
+          reviews once the Business Profile + env vars exist, and the manual
+          flag-gated section as a fallback. Both render nothing until real
+          reviews exist. */}
+      <GoogleReviews />
       <Testimonials />
       <Process />
       <Section id="book">

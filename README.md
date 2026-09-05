@@ -30,6 +30,8 @@ npm run dev                  # http://localhost:3000
 | `SHEETS_WEBHOOK_URL` | Deployed Google Apps Script web app that appends a lead row |
 | `SHEETS_SHARED_SECRET` | Shared secret the Apps Script requires on every write |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Destination for the wa.me handoff (digits, e.g. `919000000000`) |
+| `GOOGLE_PLACES_API_KEY` | Optional — enables the live Google-reviews section (Places API (New) key) |
+| `GOOGLE_PLACE_ID` | Optional — the shop's Google Place ID for that section |
 
 ## Scripts
 
