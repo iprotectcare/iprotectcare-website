@@ -16,7 +16,7 @@ export function RepairCarousel() {
         />
       </Reveal>
       <Reveal>
-        <Carousel ariaLabel="Common repairs">
+        <Carousel ariaLabel="Common repairs" autoplayDelay={3000}>
           {commonRepairs.map((r) => (
             <Card key={r.name} className="h-full bg-surface">
               <div className="flex h-full min-h-44 flex-col p-6">
