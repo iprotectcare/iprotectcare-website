@@ -1,0 +1,293 @@
+<title>iProtectCare Environment Keys</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --surface: #ffffff;
+    --raised: #f5f5f7;
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --accent: #0071e3;
+    --hairline: rgba(0, 0, 0, 0.12);
+    --ok: #1e8e3e;
+    --code-bg: #f5f5f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --surface: #0b0b0c;
+      --raised: #161618;
+      --ink: #f5f5f7;
+      --ink-2: #a1a1a6;
+      --accent: #0a84ff;
+      --hairline: rgba(255, 255, 255, 0.16);
+      --ok: #34c759;
+      --code-bg: #161618;
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface: #0b0b0c;
+    --raised: #161618;
+    --ink: #f5f5f7;
+    --ink-2: #a1a1a6;
+    --accent: #0a84ff;
+    --hairline: rgba(255, 255, 255, 0.16);
+    --ok: #34c759;
+    --code-bg: #161618;
+  }
+  body {
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 56px 20px 96px;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  .eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(30px, 6vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .lede { color: var(--ink-2); font-size: 17px; margin: 0 0 40px; max-width: 56ch; }
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 56px 0 8px;
+    text-wrap: balance;
+  }
+  h3 { font-size: 16px; font-weight: 600; margin: 28px 0 6px; }
+  p { margin: 10px 0; max-width: 65ch; }
+  .muted { color: var(--ink-2); }
+  code, pre {
+    font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13.5px;
+  }
+  code {
+    background: var(--code-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 1px 6px;
+    white-space: nowrap;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 16px 18px;
+    overflow-x: auto;
+    line-height: 1.6;
+    margin: 14px 0;
+  }
+  pre code { background: none; border: none; padding: 0; white-space: pre; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14.5px;
+    margin: 20px 0 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+  .table-wrap { overflow-x: auto; }
+  .req { color: var(--accent); font-weight: 600; }
+  .opt { color: var(--ink-2); }
+  .var {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+  .step {
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    background: var(--raised);
+    padding: 22px 24px;
+    margin: 22px 0;
+  }
+  .step-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .step-num {
+    color: var(--accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .step h2 { margin: 0; font-size: 19px; }
+  .step .time { margin-left: auto; color: var(--ink-2); font-size: 13px; white-space: nowrap; }
+  ol.sub { padding-left: 20px; margin: 12px 0; }
+  ol.sub li { margin: 8px 0; max-width: 62ch; }
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 2px 0 2px 16px;
+    margin: 16px 0;
+    color: var(--ink-2);
+    font-size: 14.5px;
+  }
+  .check { color: var(--ok); font-weight: 600; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  ul.checklist { list-style: none; padding: 0; margin: 14px 0; }
+  ul.checklist li { padding-left: 26px; position: relative; margin: 10px 0; max-width: 62ch; }
+  ul.checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+</style>
+
+<main>
+  <p class="eyebrow">iProtectCare · setup guide</p>
+  <h1>Every key the website needs, and where to get it</h1>
+  <p class="lede">
+    Five environment variables power the booking pipeline and the Google-reviews
+    section. Work through them in order — the first three make the form earn
+    money; the last two are optional until your Google Business Profile is live.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Variable</th><th>Powers</th><th>Needed</th><th>Time</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="var">NEXT_PUBLIC_WHATSAPP_NUMBER</td><td>WhatsApp handoff after booking</td><td class="req">Required</td><td>1 min</td></tr>
+        <tr><td>2</td><td class="var">SHEETS_SHARED_SECRET</td><td>Protects the Sheet webhook</td><td class="req">Required</td><td>1 min</td></tr>
+        <tr><td>3</td><td class="var">SHEETS_WEBHOOK_URL</td><td>Logs each booking to Google Sheets</td><td class="req">Required</td><td>15 min</td></tr>
+        <tr><td>4</td><td class="var">GOOGLE_PLACE_ID</td><td>Google-reviews section</td><td class="opt">Optional</td><td>5 min</td></tr>
+        <tr><td>5</td><td class="var">GOOGLE_PLACES_API_KEY</td><td>Google-reviews section</td><td class="opt">Optional</td><td>10 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted">Without 1–3 the form still shows the WhatsApp button, but no lead row is
+  written anywhere. Without 4–5 the reviews section simply stays hidden.</p>
+
+  <section class="step">
+    <div class="step-head"><span class="step-num">01</span><h2>WhatsApp number</h2><span class="time">1 min</span></div>
+    <p>Where "Send on WhatsApp" delivers the booking. Digits only, country code
+    first, no <code>+</code> or spaces. For the shop's confirmed number:</p>
+    <pre><code>NEXT_PUBLIC_WHATSAPP_NUMBER=919886844485</code></pre>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-num">02</span><h2>Shared secret</h2><span class="time">1 min</span></div>
+    <p>A password you invent. The website sends it with every Sheet write and
+    the Apps Script refuses requests without it, so strangers can't spam your
+    Sheet. Generate a strong one:</p>
+    <pre><code>openssl rand -hex 24</code></pre>
+    <p class="muted">Keep the output handy — the <em>same value</em> goes in this env var
+    <em>and</em> in the Apps Script's script property in step 03.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-num">03</span><h2>Sheet webhook</h2><span class="time">15 min</span></div>
+    <p>A tiny Google Apps Script attached to your Sheet receives each booking
+    and appends a row, timestamped in Asia/Kolkata.</p>
+
+    <h3>Create the Sheet</h3>
+    <p>Open <a href="https://sheets.new" rel="noopener" target="_blank">sheets.new</a>,
+    name it <strong>iProtectCare Leads</strong>, and put these headers in row&nbsp;1:</p>
+    <pre><code>Timestamp | Date | Time | Device | Model | Issue | Notes | Name | Phone | Email | Address | PIN | Consent | Source Page</code></pre>
+
+    <h3>Attach the script</h3>
+    <p>In the Sheet: <strong>Extensions → Apps Script</strong>. Delete the
+    placeholder and paste:</p>
+    <pre><code>function doPost(e) {
+  var props = PropertiesService.getScriptProperties();
+  var data = JSON.parse(e.postData.contents);
+  if (data.secret !== props.getProperty('SHARED_SECRET')) {
+    return ContentService.createTextOutput(JSON.stringify({ ok: false }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  // Date/time formatted here in Asia/Kolkata — the server runs UTC.
+  var tz = 'Asia/Kolkata';
+  var now = new Date();
+  SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].appendRow([
+    data.timestamp || now.toISOString(),
+    Utilities.formatDate(now, tz, 'dd MMM yyyy'),
+    Utilities.formatDate(now, tz, 'HH:mm'),
+    data.device, data.model, data.issue, data.notes,
+    data.name, data.phone, data.email,
+    data.address, data.pin, data.consent, data.sourcePage
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code></pre>
+
+    <h3>Set the secret &amp; deploy</h3>
+    <ol class="sub">
+      <li><strong>Project Settings</strong> (gear icon) → <strong>Script properties</strong> →
+      add property <code>SHARED_SECRET</code> with the value from step&nbsp;02.</li>
+      <li><strong>Deploy → New deployment → Web app.</strong> Execute as
+      <strong>Me</strong>; who has access: <strong>Anyone</strong> — the shared
+      secret is the real gate.</li>
+      <li>Authorize when asked, then copy the <strong>Web app URL</strong>
+      ending in <code>/exec</code>. That URL is
+      <span class="var">SHEETS_WEBHOOK_URL</span>.</li>
+    </ol>
+
+    <h3>Test it</h3>
+    <pre><code>curl -sL -X POST "https://script.google.com/macros/s/XXXX/exec" \
+  -H 'content-type: application/json' \
+  -d '{"secret":"YOUR_SECRET","timestamp":"curl test","device":"iPhone",
+       "model":"Test row","issue":"Ignore me","notes":"","name":"Jane Doe",
+       "phone":"+91 9000000000","email":"jane.doe@example.com","address":"",
+       "pin":"","consent":"yes","sourcePage":"/curl-test"}'</code></pre>
+    <p>Expect <code>{"ok":true}</code> <span class="check">and a new row in the
+    Sheet</span>. Delete the test row after.</p>
+    <div class="callout">Editing the script later? Use <strong>Deploy → Manage
+    deployments → edit → new version</strong>. Creating a brand-new deployment
+    changes the URL and breaks the website until you update the env var.</div>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-num">04</span><h2>Google reviews keys</h2><span class="time">15 min</span></div>
+    <p>Both values — <span class="var">GOOGLE_PLACE_ID</span> and
+    <span class="var">GOOGLE_PLACES_API_KEY</span> — come from the interactive
+    wizard in the repo. It opens each Google page, captures what you paste,
+    saves it to <code>.env.local</code>, and verifies against the live API:</p>
+    <pre><code>bash scripts/setup-google-reviews.sh</code></pre>
+    <p class="muted">Run it in a real terminal window (not through the chat prompt — it
+    needs your keyboard). It covers: verifying the Business Profile, copying
+    the Place ID from Google's finder, enabling Places API (New), and creating
+    a restricted API key.</p>
+  </section>
+
+  <h2>Where the values go</h2>
+  <p><strong>Local development</strong> — all five in <code>.env.local</code>
+  (git-ignored, never committed). Restart <code>npm run dev</code> after editing.</p>
+  <pre><code>SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/XXXX/exec
+SHEETS_SHARED_SECRET=paste-from-step-02
+NEXT_PUBLIC_WHATSAPP_NUMBER=919886844485
+GOOGLE_PLACE_ID=ChIJ....
+GOOGLE_PLACES_API_KEY=AIza....</code></pre>
+  <p><strong>Production</strong> — Vercel dashboard → iprotectcare-website →
+  <strong>Settings → Environment Variables</strong> → add each name and value
+  for all environments, then <strong>Deployments → ⋯ → Redeploy</strong> so the
+  live build picks them up.</p>
+
+  <h2>Final check</h2>
+  <ul class="checklist">
+    <li>Submit a test booking on <code>/book</code> (Jane Doe data) — success
+    screen appears <em>and</em> a row lands in the Sheet.</li>
+    <li>Tap "Send on WhatsApp" — the prefilled chat targets the shop number.</li>
+    <li>The reviews section shows on the homepage once the Business Profile has
+    at least one real review (Google's API returns up to 5; the section links
+    to the rest).</li>
+  </ul>
+</main>
